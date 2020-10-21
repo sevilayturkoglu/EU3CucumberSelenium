@@ -10,7 +10,6 @@ import io.cucumber.java.en.When;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import sun.rmi.runtime.Log;
 
 public class LoginStepDefs {
     @Given("the user is on the login page")
@@ -70,6 +69,8 @@ public class LoginStepDefs {
         Assert.assertTrue(Driver.get().getTitle().contains(expectedTitle));
 
     }
+
+
 
 
 
