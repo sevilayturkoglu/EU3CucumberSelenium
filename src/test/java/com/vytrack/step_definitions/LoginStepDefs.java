@@ -10,6 +10,7 @@ import io.cucumber.java.en.When;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import sun.rmi.runtime.Log;
 
 public class LoginStepDefs {
     @Given("the user is on the login page")
@@ -54,6 +55,20 @@ public class LoginStepDefs {
 
         LoginPage loginPage = new LoginPage();
         loginPage.login(username,password);
+    }
+
+    @When("the user logs in using {string} and {string}")
+    public void the_user_logs_in_using_and(String username, String password) {
+        LoginPage loginPage = new LoginPage();
+        loginPage.login(username,password);
+    }
+
+    @Then("the title contains {string}")
+    public void the_title_contains(String expectedTitle) {
+        System.out.println("expectedTitle = " + expectedTitle);
+        BrowserUtils.waitFor(2);
+        Assert.assertTrue(Driver.get().getTitle().contains(expectedTitle));
+
     }
 
 
