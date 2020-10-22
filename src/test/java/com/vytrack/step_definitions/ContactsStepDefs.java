@@ -54,6 +54,15 @@ public class ContactsStepDefs {
     public void the_user_logs_in_using_following_credentials(Map<String,String> userInfo) {
         System.out.println(userInfo);
         //use map information to login and also verify firstname and lastname
+        //login with map info
+        new LoginPage().login(userInfo.get("username"),userInfo.get("password"));
+        //verify firstname and lastname
+        String actualName = new DashboardPage().getUserName();
+        String expectedName = userInfo.get("firstname")+" "+ userInfo.get("lastname");
+
+        Assert.assertEquals(expectedName,actualName);
+        System.out.println("expectedName = " + expectedName);
+        System.out.println("actualName = " + actualName);
 
     }
 
