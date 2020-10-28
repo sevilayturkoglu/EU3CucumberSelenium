@@ -23,6 +23,7 @@ public class Driver {
         // Test
         if (driver == null) {
             // this line will tell which browser should open based on the value from properties file
+            //test final
             String browser = ConfigurationReader.get("browser");
             switch (browser) {
                 case "chrome":
